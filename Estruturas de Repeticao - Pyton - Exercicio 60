@@ -1,0 +1,51 @@
+# - 60 Faça um programa que leia vários números, calcule:
+
+# a - A soma dos números digitados
+# b - A quantidade de números digitados
+# c - A média dos números digitados
+# d - O maior número digitado
+# e - O menor número digitado
+# f - A média dos números pares
+
+# Finalize a entrada de dados caso o usuário informe o valor 0.
+
+# Inicializa as variáveis para armazenar os cálculos
+soma = quantidade = maior = media_pares = 0
+menor = float('inf')
+numeros_pares = []
+
+# Loop para ler os números até que o usuário informe 0
+while True:
+    numero = float(input("Digite um número (0 para encerrar): "))
+
+    if numero == 0:
+        break
+
+    # Atualiza a soma e a quantidade de números digitados
+    soma += numero
+    quantidade += 1
+
+    # Atualiza o maior e o menor número digitado
+    if numero > maior:
+        maior = numero
+    if numero < menor:
+        menor = numero
+
+    # Se o número for par, adiciona à lista de números pares
+    if numero % 2 == 0:
+        numeros_pares.append(numero)
+
+# Calcula a média dos números digitados
+media = soma / quantidade
+
+# Se houver números pares, calcula a média dos números pares
+if numeros_pares:
+    media_pares = sum(numeros_pares) / len(numeros_pares)
+
+# Exibe os resultados
+print(f"Soma dos números digitados: {soma}")
+print(f"Quantidade de números digitados: {quantidade}")
+print(f"Média dos números digitados: {media}")
+print(f"Maior número digitado: {maior}")
+print(f"Menor número digitado: {menor}")
+print(f"Média dos números pares: {media_pares}")
